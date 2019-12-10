@@ -21,24 +21,49 @@ star_war_characters
 main.py
 
 ```
-## File Details
-
-```bash
-unitTest.py
-def test_verify_api_response(self)
+## File/Function Details
+### UnitTest.py
 ```
-#Perform unit test to check if page is returning empty response
-#self is used for class initilization
-
-```bash
-append_to_file(filepath,name,height,gender)
+test_verify_api_response(self)
 ```
-#outputs starwar character's name, height and gender to CSV file
-#filepath - destination file location on server
-#name - Name of starwar character
-#height - Height of starwar character
-#gender - Gender of starwar character
+1. Function to verify empty page response
+2. self is used for class initilization
 
+### apiHelper.py
+```
+logs_args(func)
+```
+1. Decorator to for logging
+2. Arguments Passed: Function
+```
+fetch_API_response(self,page_number)
+```
+1. Function to fetch API response
+2. Arguments Passed: Page Number
+```
+@logs_args
+  star_wars_characters_list(self,page_nr)
+```
+1. Returns a list (or generator) of the name, height, and gender of each Star Wars character
+2. Argument Passed : Page Number
+
+### csv.py
+```
+append_to_file(self,filepath,name,height,gender)
+```
+1. Append the 'name', 'height' and 'gender' of each Star Wars character to a csv file provided by 'filepath'
+2. Argument Passed : 
+   2.1 filepath : path where csv file need to be stored
+   2.2 name : name of starwar character
+   2.3 height: height of starwar character
+  2.4 gender: gender of starwar character
+
+starWarCharacter.py
+```
+def __init__(self, name=None, height=None, gender=None)
+```
+1. Object initilization
+2. Arguments Passed : name, height and gender of starWar Character
 ## Usage (Example)
 Call above functions from main function
 ```
