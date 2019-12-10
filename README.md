@@ -58,16 +58,12 @@ append_to_file(self,filepath,name,height,gender)
    2.3 height: height of starwar character
   2.4 gender: gender of starwar character
 
-starWarCharacter.py
+### starWarCharacter.py
 ```
 def __init__(self, name=None, height=None, gender=None)
 ```
 1. Object initilization
 2. Arguments Passed : name, height and gender of starWar Character
-## Usage (Example)
-Call above functions from main function
-```
-star_wars_characters(self,1) #reads data from 1st page
 
-append_to_file('c:\\','Luke Skywalker','172','male')
-```
+### main.py
+main python file 
