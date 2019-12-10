@@ -8,14 +8,28 @@ Import requests http library using below:
 ```bash
 import requests
 ```
-## Function Definitions
+## Folder structure and Files
+```bash
+UnitTests
+  |-- unitTest.py
+api
+  |-- apiHelper.py
+file
+  |-- csv.py
+star_war_characters
+  |--starWarCharacter.py
+main.py
+
+```
+## File Details
 
 ```bash
-star_wars_characters(self,page_nr)
+unitTest.py
+def test_verify_api_response(self)
 ```
-#retrieves data from specified page number
+#Perform unit test to check if page is returning empty response
 #self is used for class initilization
-#page_nr is an argument to set Page Number 
+
 ```bash
 append_to_file(filepath,name,height,gender)
 ```
