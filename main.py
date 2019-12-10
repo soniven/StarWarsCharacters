@@ -1,52 +1,28 @@
-#import requests library
-import requests
+from api.apiHelper import ApiHelper
+from file.csv import ExportToCSV
+import tempfile
 
-#Define StarWarChars Class
-class StarWarChrs(object):     
-    def __init__(self, name=None, height=None, gender=None):
-        self.name = name
-        self.height = height
-        self.gender = gender     
 
-class ApiHelper:
-  def star_wars_characters(self,page_nr):
-  # Returns a list (or generator)
-  # of the name, height, and gender of each
-  # Star Wars character
+class StarWars(object):
+    if __name__ == "__main__":
+        apiObject = ApiHelper()  # ApiClass Object
+        page_no = 1  # Set page number to 1
 
-    api = "https://swapi.co/api/people/?page="
-    #form api url with page numbers
-    url = api + str(page_nr)
-    #retrieve data
-    data = requests.get(url).json()
-    starWarChrsList = []
-    if data.get('results') != None :
-    #if data is not empty, append to the list
-      for starwar_chrs in data['results']:       
-        starWarChrsList.append(StarWarChrs(starwar_chrs['name'],
-        starwar_chrs['height'],starwar_chrs['gender']))
-    return starWarChrsList
+        csv_file_object = ExportToCSV()  # CSV class object
+        starwars_character_arrayLength = 1
 
-#Append results into CSV file
-def append_to_file(filepath,name,height,gender):
-  f = open(filepath +"star_wars_characters.csv", "a")
-  f.write(name+','+height+','+gender )
-  f.write('\n')
-  f.close() 
+        # Get temp directory details
+        path_to_store_csv_file = tempfile.gettempdir()
 
-#main function
-if __name__=="__main__": 
-  a = ApiHelper() #ApiClass Object 
-  arrayLen = 1 
-  i = 1
-  append_to_file("C:\\",'Name','Height','Gender')
-  print("Start fetching data..")
-  while arrayLen > 0:
-    starWarChrsList = a.star_wars_characters(i)
-    arrayLen = len(starWarChrsList)
-    for starwar_chrs in starWarChrsList:    
-        append_to_file("C:\\",starwar_chrs.name,
-        starwar_chrs.height,
-        starwar_chrs.gender )
-    i += 1
-  print("Completed..!!")
+        # Call function to create CSV file and write first line as column headings
+        csv_file_object.append_to_file(path_to_store_csv_file, "Name", "Height", "Gender")
+
+        while starwars_character_arrayLength > 0:
+            starWarChrsList = apiObject.star_wars_characters_list(page_no)
+            print("page_no : " + str(page_no))
+            starwars_character_arrayLength = len(starWarChrsList)
+
+            for starwar_chrs in starWarChrsList:
+                csv_file_object.append_to_file(path_to_store_csv_file, starwar_chrs.name, starwar_chrs.height,starwar_chrs.gender)
+                print "StarWar Character Details: ", starwar_chrs.name, starwar_chrs.height,starwar_chrs.gender
+            page_no += 1
