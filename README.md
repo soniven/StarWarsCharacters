@@ -53,7 +53,8 @@ append_to_file(self,filepath,name,height,gender)
 ```
 1. Append the 'name', 'height' and 'gender' of each Star Wars character to a csv file provided by 'filepath'
 2. Argument Passed:
-    -> filepath : path where csv file need to be stored
+
+    -> filepath:path where csv file need to be stored
     -> name : name of starwar character
     -> height: height of starwar character
     -> gender: gender of starwar character
