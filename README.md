@@ -33,7 +33,7 @@ test_verify_api_response(self)
 ```
 logs_args(func)
 ```
-1. Decorator to for logging
+1. Decorator for logging
 2. Arguments Passed: Function
 ```
 fetch_API_response(self,page_number)
@@ -52,11 +52,11 @@ fetch_API_response(self,page_number)
 append_to_file(self,filepath,name,height,gender)
 ```
 1. Append the 'name', 'height' and 'gender' of each Star Wars character to a csv file provided by 'filepath'
-2. Argument Passed : 
-   2.1 filepath : path where csv file need to be stored
-   2.2 name : name of starwar character
-   2.3 height: height of starwar character
-  2.4 gender: gender of starwar character
+2. Argument Passed :
+    -> filepath : path where csv file need to be stored
+    -> name : name of starwar character
+    -> height: height of starwar character
+    -> gender: gender of starwar character
 
 ### starWarCharacter.py
 ```
@@ -67,3 +67,5 @@ def __init__(self, name=None, height=None, gender=None)
 
 ### main.py
 main python file 
+
+
