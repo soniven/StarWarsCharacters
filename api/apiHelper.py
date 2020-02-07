@@ -1,3 +1,4 @@
+#imports 
 import requests
 
 from star_war_characters.starWarCharacter import StarWarCharacter
@@ -12,7 +13,7 @@ def logs_args(func):
 class ApiHelper(object):
 
   def fetch_API_response(self,page_number):
-    #retrieve response
+    #retrieve responses
     self.api_url = "https://swapi.co/api/people"
     return requests.get(self.api_url, params={'page':page_number}).json()
 
